@@ -1,20 +1,13 @@
-"""
-Escriba el codigo que ejecute la accion solicitada en cada pregunta. Los
-datos requeridos se encuentran en el archivo data.csv. En este laboratorio
-solo puede utilizar las funciones y librerias basicas de python. No puede
-utilizar pandas, numpy o scipy.
-"""
-
+from homework.utils import loadFile, linePreprocessing, mapper08, shuffleAndSort
 
 def pregunta_08():
-    """
+    '''
     Genere una lista de tuplas, donde el primer elemento de cada tupla
     contiene  el valor de la segunda columna; la segunda parte de la tupla
     es una lista con las letras (ordenadas y sin repetir letra) de la
     primera  columna que aparecen asociadas a dicho valor de la segunda
-    columna.
-
-    Rta/
+    columna
+    R/=
     [(0, ['C']),
      (1, ['B', 'E']),
      (2, ['A', 'E']),
@@ -25,5 +18,8 @@ def pregunta_08():
      (7, ['A', 'C', 'D', 'E']),
      (8, ['A', 'B', 'D', 'E']),
      (9, ['A', 'B', 'C', 'E'])]
-
-    """
+    '''
+    seq = loadFile('files/input/data.csv')
+    seq = linePreprocessing(seq)
+    seq = mapper08(seq)
+    return shuffleAndSort(seq)
